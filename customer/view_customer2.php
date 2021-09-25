@@ -21,21 +21,20 @@
 			// Include our login information
 			require_once('../lib/db_login.php');
 			// Execute the query
-			$query = " SELECT customerid AS ID, name AS Nama, address AS Alamat, city AS Kota FROM customers ORDER BY customerid ";
-			$result = $db->query($query);
+			$result = $db->query(" SELECT * FROM customers ORDER BY customerid ");
 			if (!$result) {
-				die("Could not query the database: <br />" . $db->error . "<br>Query: " . $query);
+				die("Could not query the database: <br />" . $db->error);
 			}
 			// Fetch and display the results
 			$i = 1;
 			while ($row = $result->fetch_object()) {
 				echo '<tr>';
-				echo '<td>' . $row->ID . '</td>';
-				echo '<td>' . $row->Nama . '</td> ';
-				echo '<td>' . $row->Alamat . '</td> ';
-				echo '<td>' . $row->Kota . '</td>';
-				echo '<td><a class="btn btn-warning btn-sm" href="edit_customer.php?id=' . $row->ID . '">Edit</a>&nbsp;&nbsp; 
-			<a class="btn btn-danger btn-sm" href="confirm_delete_customer.php?id=' . $row->ID . '">Delete</a>
+				echo '<td>' . $i . '</td>';
+				echo '<td>' . $row->name . '</td> ';
+				echo '<td>' . $row->address . '</td> ';
+				echo '<td>' . $row->city . '</td>';
+				echo '<td><a class="btn btn-warning btn-sm" href="edit_customer.php?id=' . $row->customerid . '">Edit</a>&nbsp;&nbsp; 
+			<a class="btn btn-danger btn-sm" href="confirm_delete_customer.php?id=' . $row->customerid . '">Delete</a>
 			</td>';
 				echo '</tr>';
 				$i++;

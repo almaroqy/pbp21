@@ -14,4 +14,3 @@ if (!$result){
 }
 //close db connection
 $db->close();
-?>
