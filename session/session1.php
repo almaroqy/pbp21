@@ -1,6 +1,6 @@
 <?php
 //File		: set_session.php
-//Deskripsi	: untuk mengeset session
+//Deskripsi	: untuk set session
 
 //Remember that session_start must come before any other line that generates output
 session_start();
